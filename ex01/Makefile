@@ -6,6 +6,7 @@ all : $(NAME)
 
 $(NAME):
 		@clang++ $(CFLAGS) main.cpp \
+		Fixed.cpp \
 		-o $(NAME)
 
 clean:

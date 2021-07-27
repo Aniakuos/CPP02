@@ -1,6 +1,8 @@
 #ifndef FIXED_H
 # define FIXED_H
 
+#include <iostream>
+
 class Fixed {
 
 public:
@@ -15,8 +17,7 @@ public:
     void setRawBits( int const raw );
     float toFloat( void ) const;
     int toInt( void ) const;
-    std::ostream & operator<<( std::ostream & o, integer const & rhs);
-
+    
 
 private:
 
@@ -24,5 +25,7 @@ private:
     static int const _nbr_fractional_bits;
 
 };
+
+std::ostream & operator<<( std::ostream & o, Fixed const & rhs);
 
 #endif
