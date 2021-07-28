@@ -5,29 +5,29 @@ int const Fixed::_nbr_fractional_bits = 8;
 
 Fixed::Fixed( void ) : _fixed_point(0)
 {
-    std::cout << "Default constructor called" << std::endl;
+    //std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed( int const param )
 {
     this->_fixed_point = param * (1 << this->_nbr_fractional_bits);
-    std::cout << "Int constructor called" << std::endl;
+    //std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed( float const param )
 {
     this->_fixed_point = roundf(param * (1 << this->_nbr_fractional_bits));
-    std::cout << "Float constructor called" << std::endl;
+    //std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::~Fixed( void )
 {
-    std::cout << "Destructor called" << std::endl;
+    //std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed( Fixed const & src )
 {
-    std::cout << "Copy constructor called" << std::endl;
+    //std::cout << "Copy constructor called" << std::endl;
     *this = src;
 
     return;
@@ -35,7 +35,7 @@ Fixed::Fixed( Fixed const & src )
 
 Fixed & Fixed::operator=( Fixed const & rhs )
 {
-    std::cout << "Assignation operator called" << std::endl;
+    //std::cout << "Assignation operator called" << std::endl;
     //if ( this != &rhs )
     this->_fixed_point = rhs.getRawBits();
     return *this;
@@ -99,22 +99,27 @@ bool Fixed::operator!=(Fixed const &o) const
     return (this->toFloat() != o.toFloat());
 }
 
-bool Fixed::operator+(Fixed const &o) const
+Fixed Fixed::operator+(Fixed const &o) const
 {
     return (this->toFloat() + o.toFloat());
 }
 
-bool Fixed::operator-(Fixed const &o) const
+Fixed Fixed::operator-(Fixed const &o) const
 {
     return (this->toFloat() - o.toFloat());
 }
 
-bool Fixed::operator*(Fixed const &o) const
+Fixed Fixed::operator*(Fixed const &o) const
 {
     return (this->toFloat() * o.toFloat());
 }
 
-bool Fixed::operator/(Fixed const &o) const
+Fixed Fixed::operator/(Fixed const &o) const
+{
+    return (this->toFloat() / o.toFloat());
+}
+
+Fixed Fixed::operator++(Fixed const &o) const
 {
     return (this->toFloat() / o.toFloat());
 }

@@ -17,7 +17,17 @@ public:
     void setRawBits( int const raw );
     float toFloat( void ) const;
     int toInt( void ) const;
-    
+    bool operator>(Fixed const & o) const;
+    bool operator<(Fixed const & o) const;
+    bool operator>=(Fixed const & o) const;
+    bool operator<=(Fixed const & o) const;
+    bool operator==(Fixed const &o) const;
+    bool operator!=(Fixed const &o) const;
+    Fixed operator+(Fixed const &o) const;
+    Fixed operator-(Fixed const &o) const;
+    Fixed operator*(Fixed const &o) const;
+    Fixed operator/(Fixed const &o) const;
+    //Fixed operator++(Fixed const &o) const;
 
 private:
 
@@ -27,5 +37,6 @@ private:
 };
 
 std::ostream & operator<<( std::ostream & o, Fixed const & rhs);
+
 
 #endif
