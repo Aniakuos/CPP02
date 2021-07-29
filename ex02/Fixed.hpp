@@ -27,7 +27,8 @@ public:
     Fixed operator-(Fixed const &o) const;
     Fixed operator*(Fixed const &o) const;
     Fixed operator/(Fixed const &o) const;
-    //Fixed operator++(Fixed const &o) const;
+    Fixed operator++( void );
+    Fixed operator++( int );
 
 private:
 

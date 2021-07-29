@@ -119,7 +119,15 @@ Fixed Fixed::operator/(Fixed const &o) const
     return (this->toFloat() / o.toFloat());
 }
 
-Fixed Fixed::operator++(Fixed const &o) const
+Fixed Fixed::operator++( void )
 {
-    return (this->toFloat() / o.toFloat());
+    this->_fixed_point += 1 / (1 << this->_nbr_fractional_bits);
+    return (*this);
+}
+
+Fixed Fixed::operator++( int )
+{
+    Fixed obj(*this);
+    this->_fixed_point += (1 / (1 << this->_nbr_fractional_bits));
+    return (obj);
 }
