@@ -29,6 +29,10 @@ public:
     Fixed operator/(Fixed const &o) const;
     Fixed operator++( void );
     Fixed operator++( int );
+    Fixed operator--( void );
+    Fixed operator--( int );
+    static Fixed min(Fixed const &obj, Fixed const &obj1);
+    static Fixed max(Fixed const &obj, Fixed const &obj1);
 
 private:
 

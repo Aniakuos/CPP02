@@ -119,15 +119,45 @@ Fixed Fixed::operator/(Fixed const &o) const
     return (this->toFloat() / o.toFloat());
 }
 
+//++a
 Fixed Fixed::operator++( void )
 {
-    this->_fixed_point += 1 / (1 << this->_nbr_fractional_bits);
+    *this = Fixed(this->toFloat() + Fixed(1).toFloat() / Fixed(1)._fixed_point);
     return (*this);
 }
 
 Fixed Fixed::operator++( int )
 {
     Fixed obj(*this);
-    this->_fixed_point += (1 / (1 << this->_nbr_fractional_bits));
+    *this = Fixed(this->toFloat() + Fixed(1).toFloat() / Fixed(1)._fixed_point);
     return (obj);
+}
+
+Fixed Fixed::operator--( void )
+{
+    *this = Fixed(this->toFloat() - Fixed(1).toFloat() / Fixed(1)._fixed_point);
+    return (*this);
+}
+
+Fixed Fixed::operator--( int )
+{
+    Fixed obj(*this);
+    *this = Fixed(this->toFloat() - Fixed(1).toFloat() / Fixed(1)._fixed_point);
+    return (obj);
+}
+
+Fixed Fixed::min(Fixed const &obj, Fixed const &obj1)
+{
+    if (obj.toFloat() < obj1.toFloat())
+        return (obj);
+    else
+        return (obj1);
+}
+
+Fixed Fixed::max(Fixed const &obj, Fixed const &obj1)
+{
+    if (obj.toFloat() > obj1.toFloat())
+        return (obj);
+    else
+        return (obj1);
 }

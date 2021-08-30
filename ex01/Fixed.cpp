@@ -10,6 +10,7 @@ Fixed::Fixed( void ) : _fixed_point(0)
 
 Fixed::Fixed( int const param )
 {
+    //(1<<8) is 1*(2^8) is 256
     this->_fixed_point = param * (1 << this->_nbr_fractional_bits);
     std::cout << "Int constructor called" << std::endl;
 }

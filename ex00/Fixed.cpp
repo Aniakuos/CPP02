@@ -37,3 +37,5 @@ void Fixed::setRawBits (int const raw )
 {
     this->_fixed_point = raw;
 }
+
+int const Fixed::_nbr_fractional_bits = 8;
